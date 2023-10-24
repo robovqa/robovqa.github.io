@@ -1,0 +1,529 @@
+
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>RoboVQA: Multimodal Long-Horizon Reasoning for Robotics</title>
+
+    <meta name="description" content="RoboVQA: Multimodal Long-Horizon Reasoning for Robotics">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <base href="/"> -->
+
+        <!--FACEBOOK-->
+    <meta property="og:image" content="https://anonymous-robovqa.github.io/img/random_img_frames.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="682">
+    <meta property="og:image:height" content="682">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://anonymous-robovqa.github.io/"/>
+    <meta property="og:title" content="RoboVQA: Multimodal Long-Horizon Reasoning for Robotics" />
+    <meta property="og:description" content="Anonymous project page for RoboVQA: Multimodal Long-Horizon Reasoning for Robotics." />
+
+        <!--TWITTER-->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="RoboVQA: Multimodal Long-Horizon Reasoning for Robotics" />
+    <meta name="twitter:description" content="Anonymous project page for RoboVQA: Multimodal Long-Horizon Reasoning for Robotics." />
+    <meta name="twitter:image" content="https://anonymous-robovqa.github.io/img/random_img_frames.png" />
+
+
+<!--     <link rel="apple-touch-icon" href="apple-touch-icon.png"> -->
+  <!-- <link rel="icon" type="image/png" href="img/seal_icon.png"> -->
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.css">
+    <link rel="stylesheet" href="css/app.css">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.3/clipboard.min.js"></script>
+    
+    <script src="js/app.js"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-52J0PM8XKV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-52J0PM8XKV');
+</script>
+	
+    <style>
+        .nav-pills {
+          position: relative;
+          display: inline;
+        }
+        .imtip {
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" id="main">
+        <div class="row">
+            <h2 class="col-md-12 text-center">
+                <strong><font size="+6">RoboVQA: Multimodal Long-Horizon Reasoning<br>for Robotics</font></strong> </br> 
+                <!--<small>
+                    CoRL 2023
+                </small>-->
+            </h2>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <ul class="list-inline">
+                <br>
+                <li>Anonymous Authors</li>
+            <br>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                        <ul class="nav nav-pills nav-justified">
+                            <li>
+                                <a href="assets/anon_roboplan.pdf" target="_blank">
+                                <image src="img/paper.png" height="60px">
+                                    <h4><strong>Paper</strong></h4>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://console.cloud.google.com/storage/browser/anon_robovqa" target="_blank">
+                                <image src="img/storage_icon.png" height="60px">
+                                    <h4><strong>Data</strong></h4>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#videos">
+                                <image src="img/youtube_icon.png" height="60px">
+                                    <h4><strong>Videos</strong></h4>
+                                </a>
+                            </li>
+                        </ul>
+                </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+		<h3>Main Qualitative Results</h3>
+		<h4>1- Example of <a href="https://anonymous-robovqa.github.io/img/robovqa_bench_table.png" target="_blank">Evaluation #3</a>: <b>Fully autonomous long-horizon task execution</b></h4>
+                 <p style="text-align:center;">
+            	    <video id="bg-video" autoplay loop muted playsinline controls style="display: block; width: 100%;">
+                        <source src="videos/RoboVQA/demo_robotx8_typex2_5_486rate.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </p>
+            </div>
+            <div class="col-md-8 col-md-offset-2">
+		<h4>2- <b>Demonstrating 6 VQA task types:</b> planning, success, discriminative affordance, generative affordance, past description and future prediction</h4>
+                 <p style="text-align:center;">
+            	    <video id="bg-video" autoplay loop muted playsinline controls style="display: block; width: 100%;">
+                        <source src="https://anonymous-robovqa.github.io/videos/RoboVQA/rate_52.9_686c04bfea1e0ec78112.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+		    <p class="text-justify"> Notes: The cognitive model "Brain" is being evaluated here on a pre-recorded video with human teleoperation (100% physical intervention).
+			    The intervention only evaluates the planning answers in this video.
+			 The other types of questions asked by the user are not used by the robot to make closed-loop decisions about planning.
+			    These questions however could be used by the robot for increased robustness to self-check planning decisions (for example checking for success and retrying until success is detected).
+			 Planning questions are asked at pre-determined points in the video (obtained from hindsight temporal segmentations). 
+			 In this video, we observe that the cognitive model was able to correctly identify if instructions ("pick up the bag", "pick up the cap") were satisfied or not before and after being performed.
+		    </p>
+                </p>
+            </div>
+            <div class="col-md-8 col-md-offset-2">
+		<h4>3- Example of <a href="https://anonymous-robovqa.github.io/img/robovqa_bench_table.png" target="_blank">Evaluation #1</a>: <b>Autonomous cognition model with human teleoperation</b></h4>
+                 <p style="text-align:center;">
+            	    <video id="bg-video" autoplay loop muted playsinline controls style="display: block; width: 100%;">
+                        <source src="https://anonymous-robovqa.github.io/videos/RoboVQA/rate_72.7_f21812e39aa80e5f2231.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </p>
+            </div>
+
+<!--                 <h3>
+                    Abstract
+                </h3>
+                <p class="text-justify">
+                   We present RoboVQA, a large-scale multimodal and cross-embodiment dataset and benchmark for long-horizon planning. We use scalable ways for acquiring real-world data and language labels with high throughput and high diversity: crowd-sourcing tasks from users and operators, collecting long continuous episodes, using crowd-sourced labeling and automatically generating tasks from it, using human embodiment data along with robotic embodiment data. We analyze the effects of mixing cross-embodiment data as well as multi-task data and find that it generally increases performance, broadens capabilities and increases collection throughput. Examples in RoboVQA are formatted as video-text pairs, where videos of robot or human actions are annotated with texts of multi-turn visual question answering (VQA), detailing the intermediate thoughts and actions required to achieve the session goals. This dataset covers a total of 300 hours of videos, over 1 million conversations and 100k instructions. We then define a novel benchmark based on this dataset, using an intervention rate metric to assess a robot's level of autonomy in accomplishing predefined goals without human interference. We validate our approach by running several state-of-the-art visual language models (VLM) over the dataset, and demonstrate the feasibility of long-horizon planning in the real-world with low intervention rate. Moreover, we find that video language models in general work better than image language models, indicating the necessity of modeling visual temporal dynamics in long-horizon planning tasks. 
+                   Finally, our results corroborate our assumption that models trained on human data can effectively transfer to robot setup, revealing the potential of our approach in facilitating large-scale, cost-effective training for robot planning problems. 
+                </p>
+-->
+        </div> 
+
+
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Main Quantitative Results
+                </h3>
+
+		    <p class="text-justify">
+			    In the <a href="https://anonymous-robovqa.github.io/img/robovqa_bench_table.png" target="_blank">Table 1</a> below we report 3 long-horizon planning evaluations where a model has to predict the next task to perform at multiple turns given a long-horizon instruction and the last few seconds of video.
+			    The metric used here is human intervention rate, which we decompose into "cognitive" (high-level reasoning) and "physical" for actual control. This allows us to evaluate the full breadth of the cognitive model which is much broader than what our low-level policy can achieve.
+		    </p><p class="text-justify">			
+			    Evaluation #1 evaluates models on 100 existing long-horizon episodes (854 planning steps to predict in total) in a broad domain (various tasks across 3 office buildings). This evaluation considers all 3 embodiments contained in the dataset (robot, human, human with tool).
+			    Evaluations #2 and #3 however only consider the robot embodiment.
+		    </p><p class="text-justify">
+			    Evaluation #2 is exploring how a high-level cognitive model can actually command a real robot through long-horizon planning.
+			    To remain in the broad domain, we use human teleoperation for control and hence avoid more limited domain that our current policies can perform.
+		    </p><p class="text-justify">
+			    Finally, in evaluation #3 we show that combining a high-level cognitive model with a low-level control policy can lead to a fully autonomous system.
+			    The breadth of tasks that can be evaluated however is drastically smaller due to the limited capacities of the policy.
+		    </p><p class="text-justify">
+			    We report the cognitive and physical intervention rates separately because for evaluations #1 and #2, the physical control is performed entirely by humans (hence the average intervention rate cannot be lower than 50%).
+			    In evaluation #3 however, we use a policy for control in a fully autonomous setting where the average intervention rate can be <50%.
+		    </p>
+                    <p style="text-align:center;">
+			<a href="https://anonymous-robovqa.github.io/img/robovqa_bench_table.png" target="_blank">
+	                        <figure>
+	                            <img src="img/robovqa_bench_table.png" class="img-responsive">
+	                            <figcaption>Table 1 - Results on multi-turn long-horizon planning tasks, in pre-recorded videos (experiments #1), live settings with human teleoperation as policy (experiments #2) or fully autonomous (experiments #3).</figcaption>
+	                        </figure>
+			</a>
+                    </p>
+                    <p style="text-align:center;">
+			<a href="https://anonymous-robovqa.github.io/img/intervention10.png" target="_blank">
+	                        <figure>
+	                            <img src="img/intervention10.png" class="img-responsive">
+			</a>
+	                            <figcaption>Fig. 1 - 10 long-horizon tasks being evaluated in <a href="https://anonymous-robovqa.github.io/img/robovqa_bench_table.png" target="_blank">Evaluation #2</a> (~60 medium-horizon steps in total). 
+					    These evaluation scenarios were devised after data collection was finished.</figcaption>
+	                        </figure>
+                    </p>
+
+
+<!--                 <h3>
+                    VQA Tasks
+                </h3>
+		    
+		    Here we describe the the RoboVQA benchmark. Each episode is decomposed into a sequence of tasks, each consisting of a text question and a video segment. The following eight tasks are defined: 
+                    <br>
+                    <ul>
+                        <li>
+                            <b>Planning</b> Given the high-level goal, determine the immediate next step required to accomplish it, or all steps required to accomplish to goal. For example, <i>current goal is: Please get a water bottle and put it on Tomas's desk. Q: immediate next step? A: Open the fridge </i>
+                        </li>
+                        <li>
+                            <b>Planning with Context</b> An extension of <b>Planning</b> that includes contextual information of the steps that have already occurred. Example: <i>current goal is: Please get a water bottle and put it on Tomas's desk. steps so far: 1- Open the fridge 2- Put water bottle on the table Q: immediate next step? A: Close the fridge</i>
+                        </li>
+                        <li>
+                            <b>Planning Remaining Steps</b> A further extension of <b>Planning with Context</b> that requires the robot to answer with all steps remaining until the goal is completed. <i>current goal is: Please get a water bottle and put it on Tomas's desk. steps so far: 1- Open the fridge 2- Put water bottle on the table Q: immediate next step? A: 1- Close the fridge 2- Bring water bottle to Tomas's desk 3- done</i>
+                        </li>
+                        <li>
+                            <b>Discriminative Affordance</b> Given a step, ask whether this is possible with yes or no. Example: <i>put the apple on the counter Q: possible right now? A: yes</i>
+                        </li>
+                        <li>
+                            <b>Generative Affordance</b> Ask for a step that can be taken at the current time. Example: <i>Q: what action is possible right now? A: stack the glasses</i>
+                        </li>
+                        <li>
+                            <b>Success</b> Given a step, ask if it has been executed successfully. Example: <i>pick up the pen Q: satisfied? A: no</i> 
+                        </li>
+                        <li>
+                            <b>Future Prediction</b> Ask for a likely future step. Example: <i>Q: what is likely to happen next? A: put the orange in the bowl</i>
+                        </li>
+                        <li>
+                            <b>Past Description</b> Ask for the step that has just occurred. <i>Q: what just happened? A: Put the memory card packet on the stack of memory card packet</i>
+                        </li>
+                    </ul>
+                    The first task of an episode is <b>Planning Remaining Steps</b>, asking the robot to formulate a long-horizon plan to execute to accomplish the goal. As the robot executes each step of this plan, it is prompted with multiple tasks to determine <b>Affordance</b> (what actions are possible), <b>Success</b> (which actions have succeeded), and <b>Prediction</b> (which actions need to be done afterwards). 
+                    <br><br>
+                    <b>Intervention</b> Since the high-level goal is decomposed into a sequence of tasks, there is a consistent and regularized framework for determining whether or not the robot is proceeding towards the goal correctly. These questions can be viewed as an interactive conversation between a questioning human and an answering robot. In particular, the RoboVQA benchmark allows for human <b>intervention</b> within the robot's trajectory --- for example, if the robot responds incorrectly to a particular task, a human can intervene to overwrite its prediction with the correct answer, allowing it to continue the execution of subsequent tasks. 
+                    <br><br>
+                    <b>Chain-of-Thought in Natural Language</b> Decomposing high-level goals into the defined tasks allows for robots to manifest its thinking process when carrying out long-horizon plans. Moreover, these tasks are provided as natural language questions and answers, and can be viewed as a series of Visual Question Answering (VQA) steps. This formulation is similar to chain-of-thought for language model prompting~\citep{wei2023chainofthought}.  We also note concurrent work~\citep{hu2023thought} which demonstrates that mimicking step-by-step human thought improves %model's action planning accuracy.
+ -->
+		    
+            </div>
+        </div>
+        <div class="row" id="dataset">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Dataset
+                </h3>
+		    <p class="text-justify">We publicly release the RoboVQA dataset <a href="https://console.cloud.google.com/storage/browser/anon_robovqa" target="_blank">here</a>.
+			It consists of 238h (10 days) of (video, text) pairs coming from recordings of long-horizon instructions being performed by <a href="https://anonymous-robovqa.github.io/img/3_embodiments.png" target="_blank">3 different embodiments</a> (robot, human, human with tool) in a same environment (3 corporate buildings).
+			See <a href="https://anonymous-robovqa.github.io/img/dataset_stats.png" target="_blank">statistics</a> for more details.
+		    </p>
+                    <p style="text-align:center;">
+			<a href="https://anonymous-robovqa.github.io/img/random_img_frames.png" target="_blank">
+				<figure>
+				    <img src="img/random_img_frames.png" class="img-responsive">
+				    <figcaption>Fig. 2 - Random frames from the RoboVQA dataset</figcaption>
+				</figure>
+			</a>
+			<br>
+                    </p>
+<!--                     As part of the benchmark, we collect and publish the RoboVQA dataset with both training and evaluation splits. We first asked human users to provide a list of common tasks that they would like to see a robot butler perform for them in office or kitchen environments.  -->
+                    <p style="text-align:center;">
+                        <figure>
+			    <a href="https://anonymous-robovqa.github.io/img/3_embodiments.png" target="_blank">
+	                            <img src="img/3_embodiments.png" class="img-responsive">
+	                            <figcaption>Fig. 3 - Three embodiments in the RoboVQA dataset: robot, human, human with grasping tool</figcaption>
+			    </a>
+                        </figure>
+			<br>
+                    </p>
+<!--                     We then record first-person videos executing these tasks in 3 different embodiments: (1) using a tele-operated robot with a single arm, (2) with a human using a single arm, and holding a camera in their other hand, and (3) with a human using a thong, while recording videos similarly to (2). After videos were collected, we crowdsourced hindsight relabels for video segments, in which workers answered several questions on planning, success, future prediction, etc. From this data, the tasks described are generated automatically with heuristics, for example the future prediction task can be constructed by first extracting the video before a segment, then combining the question "what is likely to happen next?" with the instruction found in the segment. All tasks are constructed using different videos before, during or after a segment.
+                    <br>
+                    <br>
+                    <b>Task length</b> We focus on tasks that require long-horizon planning. Therefore the collected long-horizon episodes last on average 1 minute and 42 seconds. The medium-horizon tasks segments labeled in hindsight last on average 13 seconds.
+                    <br><br>
+                    <b>Task diversity</b> To ensure that our dataset and benchmark do not overfit to a specific environment, domain or task, we collect examples over a wide range of tasks from a robotics perspective. Unlike existing robotics works~\citep{saycan2022arxiv} where a fixed and small list of tasks is decided in advance by researchers and engineers in a top-down fashion, we opt for a bottom-up approach where a large number of tasks are crowd-sourced by users and tele-operators. This favors breadth and a better alignment with a distribution of requests coming from real users. The sessions were across 3 office buildings, covering 1,939 unique long-horizon tasks and 29,367 unique medium-horizon tasks.
+                    <br><br> -->
+                    <p style="text-align:center;">
+                        <figure>
+			    <a href="https://anonymous-robovqa.github.io/img/dataset_stats.png" target="_blank">
+	                            <img src="img/dataset_stats.png" width="70%" class="img-responsive">
+	                            <figcaption>Table 2 - General statistics of the RoboVQA dataset</figcaption>
+			    </a>
+                        </figure>
+			<br>
+                    </p>
+
+                    <p style="text-align:center;">
+                        <figure>
+			    <a href="https://console.cloud.google.com/storage/browser/anon_robovqa/instructions" target="_blank">
+	                            <img src="img/instructions.png" width="100%" class="img-responsive">
+			    <a/>
+	                            <figcaption>Fig. 4 - Full lists of ~90k <a href="https://storage.googleapis.com/anon_robovqa/instructions/instructions_medium_horizon.txt" target="_blank">medium-horizon instructions</a> (left) and ~5k <a href="https://storage.googleapis.com/anon_robovqa/instructions/instructions_long_horizon.txt" target="_blank">long-horizon instructions</a> (right)</figcaption>
+                        </figure>
+                    </p>
+		    
+<!--                     <b>Dataset Statistics</b> Detailed statistics for the dataset is illustrated in Fig. N -->
+            </div>
+        </div>
+
+        <div class="row" id="videos">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Videos
+                </h3>
+		<p class="text-justify">
+		We present below some representative long-horizon planning runs by the RoboVQA-VideoCoCa model, ranked by increasing cognitive intervention rate from 0% to 100%. 
+		Note that the model is ran on existing pre-recorded videos (with human teleoperation, in other words 100% physical intervention rate), hence some actions are labeled as valid but some other action may be consequently executed in the video instead.
+		</p><p class="text-justify">
+		These videos are from the experiment #1 evaluation on the validation set in the <a href="https://anonymous-robovqa.github.io/img/robovqa_bench_table.png" target="_blank">results table<a></a>.
+		</p><p class="text-justify">
+		Note that some of the easier tasks are repetitive and simple and usually lead to low intervention scores (see first video). Note also that the intervention labeling is not perfect and some interventions can be incorrect (see last video).
+		</p>
+                 <p style="text-align:center;">
+            	    <video id="bg-video" autoplay loop muted playsinline controls style="display: block; width: 100%;">
+                        <source src="https://anonymous-robovqa.github.io/videos/RoboVQA/rate_50.0_20a223b06d82cb296928.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </p>
+                 <p style="text-align:center;">
+            	    <video id="bg-video" autoplay loop muted playsinline controls style="display: block; width: 100%;">
+                        <source src="https://anonymous-robovqa.github.io/videos/RoboVQA/rate_50.0_ff0496c17d900256456b.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </p>
+                 <p style="text-align:center;">
+            	    <video id="bg-video" autoplay loop muted playsinline controls style="display: block; width: 100%;">
+                        <source src="https://anonymous-robovqa.github.io/videos/RoboVQA/rate_55.6_f57066842e71b693a394.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </p>
+                 <p style="text-align:center;">
+            	    <video id="bg-video" autoplay loop muted playsinline controls style="display: block; width: 100%;">
+                        <source src="https://anonymous-robovqa.github.io/videos/RoboVQA/rate_58.3_279bbeb0256a904758f1.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </p>
+                 <p style="text-align:center;">
+            	    <video id="bg-video" autoplay loop muted playsinline controls style="display: block; width: 100%;">
+                        <source src="https://anonymous-robovqa.github.io/videos/RoboVQA/rate_61.5_fb3e5d7b1492215052c3.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </p>
+                 <p style="text-align:center;">
+            	    <video id="bg-video" autoplay loop muted playsinline controls style="display: block; width: 100%;">
+                        <source src="https://anonymous-robovqa.github.io/videos/RoboVQA/rate_65.0_8d450883479609ce1c3f.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </p>
+                 <p style="text-align:center;">
+            	    <video id="bg-video" autoplay loop muted playsinline controls style="display: block; width: 100%;">
+                        <source src="https://anonymous-robovqa.github.io/videos/RoboVQA/rate_66.7_bd8033f7c1b7dee69c41.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </p>
+                 <p style="text-align:center;">
+            	    <video id="bg-video" autoplay loop muted playsinline controls style="display: block; width: 100%;">
+                        <source src="https://anonymous-robovqa.github.io/videos/RoboVQA/rate_66.7_eb453670792b56ab8b7b.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </p>
+                 <p style="text-align:center;">
+            	    <video id="bg-video" autoplay loop muted playsinline controls style="display: block; width: 100%;">
+                        <source src="https://anonymous-robovqa.github.io/videos/RoboVQA/rate_67.6_686c04bfea1e0ec78112.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </p>
+                 <p style="text-align:center;">
+            	    <video id="bg-video" autoplay loop muted playsinline controls style="display: block; width: 100%;">
+                        <source src="https://anonymous-robovqa.github.io/videos/RoboVQA/rate_71.4_19c9068ae0302ec6734f_blurred.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </p>
+                 <p style="text-align:center;">
+            	    <video id="bg-video" autoplay loop muted playsinline controls style="display: block; width: 100%;">
+                        <source src="https://anonymous-robovqa.github.io/videos/RoboVQA/rate_72.7_f21812e39aa80e5f2231.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </p>
+                 <p style="text-align:center;">
+            	    <video id="bg-video" autoplay loop muted playsinline controls style="display: block; width: 100%;">
+                        <source src="https://anonymous-robovqa.github.io/videos/RoboVQA/rate_80.0_5f8675520f2102d35c95.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </p>
+                 <p style="text-align:center;">
+            	    <video id="bg-video" autoplay loop muted playsinline controls style="display: block; width: 100%;">
+                        <source src="https://anonymous-robovqa.github.io/videos/RoboVQA/rate_85.7_e8083c0d9be4a7c17155_blurred.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </p>
+                 <p style="text-align:center;">
+            	    <video id="bg-video" autoplay loop muted playsinline controls style="display: block; width: 100%;">
+                        <source src="https://anonymous-robovqa.github.io/videos/RoboVQA/rate_100.0_c2e3b99b9ce92c7a246f.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </p>
+                 <p style="text-align:center;">
+            	    <video id="bg-video" autoplay loop muted playsinline controls style="display: block; width: 100%;">
+                        <source src="https://anonymous-robovqa.github.io/videos/RoboVQA/rate_100.0_f685f7e762bdafe08558.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </p>
+
+            </div>
+        </div>
+
+<!--         <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Evaluation Method
+                </h3>
+                    We first evaluate the model performance on individual tasks, where each task consists of a video segment and a question. The inference result is compared using exact match against prior human evaluation results stored in a central database as correct/incorrect for the video-question pair. The inference results for which no match is found are then collected for human raters to evaluate. During evaluation, a human rater is presented with the exact video segment and question as presented to the model. The rater is asked to either mark the model-generated answer as correct or incorrect, in which case the rater can propose a correct answer. All answers are added to the database, with the correctness of each answer marked accordingly.
+
+                    TODO Fig
+
+                    Robot collection throughput will often be a factor of the cost including time, money, tele-operator training and availability, hardware maintenance etc., while humans are already expert of their own embodiment, collecting data with much less cost and cycle than robots. When factoring in all of these parameters into a collection budget, we can see that robot-to-human collection cost ratios and throughputs can vary wildly depending on all of these parameters. It is hence a critical question while scaling up data collection to know which data mixture for a given budget leads to the lowest error rates.
+
+                    We explore this question in Figure~\ref{fig:collection_mixtures} by looking at the data yields for a fixed collection budget of 500,000 VQA conversations, and report the performance for different configurations in Figure~\ref{fig:collection_mixtures}-b to analyze the trade-offs between different mixtures. We find that even if the robot-human ratio is 1.0 and only evaluating on the robot test set, the error rate is comparable when training on the equal robot250k-human250k mixture (62.4\%) compared to the full 500k robot dataset (62.7\%), while also being significantly lower on the human test set (53.9\% vs 67.0\%). Not only there is no downside for the robot performance to mix human data, it also makes the model more general and usable for other applications that require human embodiment understanding.
+
+                    Similarly we find that when the robot-human cost ratio is 4.0, the performance of the mixed dataset (robot-62k + human-250k) on the robot test set is similar to the robot-only 125k dataset (65.3\% vs 63.5\%) while also being significantly lower on the human test set (51.1\% vs 68.7\%). We also observe that the performance gains seem rather small when training on 500k robot samples vs 125k, and that performance on human data degrades slightly when increasing robot data from 62k to 250k. We conclude that this analysis validates the common intuition that human data collection is an efficient way to scale up data collection for robots, despite the embodiment differences.
+
+                    TODO Fig
+                </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Tasks Transfer via Cross-Embodiment Data
+                </h3>
+
+                    In \fig{vqa5_eval_robot}, we compare error rates on the test split using VideoCoCa-\algname{} trained on robot embodiment only, human embodiment only, and their combination. The test set contains only robot embodiment data. Despite cross-embodiment, we find that errors are below 100\% for all tasks when training on human data only, indicating human data by itself is useful to acquire a grounded understanding of videos with robot embodiment. Furthermore, training on both embodiments performs better than training on robot data only, indicating that extra data with human embodiment does not hurt performance when evaluating on the robot embodiment. We use~\citep{saycan2022arxiv} as a baseline, which uses a small, fixed list of 60 tasks and can only be evaluated on the planning task. We also provide the affordance answers from \algname{} as affordance function to SayCan for planning.
+
+                    Similarly, we evaluate on the joint human and robot test split in \ref{appendix:quantitative_results} \fig{vqa5_eval_robot_human}. While it is not surprising that training on both embodiments performs best on the robot+human test set, we also shows it is the most general model as it performs better in all situations.
+                    We also explore in \fig{error_rate_different_tasks} the effect of training on multiple tasks versus training specialized models on reduced sets of tasks. We find that the model trained on all tasks is often better of comparable than the models dedicated to a subset of tasks, with the exception of the success task.
+
+                    TODO Fig
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    End-to-end Long-horizon Inference Evaluation
+                </h3>
+
+                In \fig{long_horizon_run_with_intervention_run1}, we present the answers of our model trained on both robot and human embodiment data for a full episode when queried for the immediate next step given a long-horizon instruction. We use the temporal segments provided in hindsight by human annotators on an existing test episode. For each segment, we retrieve a short video right before the segment starts and ask the model what should be done next using the following prompt: "current goal is: [long-horizon instruction] Q: immediate next step? A: ". We then submit each answer for human review and infer the intervention rate given how many steps had incorrect answers. We present more qualitative runs in Section~\ref{appendix:runs}.
+
+                \begin{figure*}[h]
+                  \centering
+                  \includegraphics[width=1\linewidth]{figures/runs/long_horizon_run_with_intervention_run1_2.pdf}  
+                  \caption{\small{\textbf{Full episodes runs with Intervention} given a long-horizon instruction and an existing video. We show the human labels on the left in blue, correct answer green and incorrect in red. For each picture (we show pictures here for simplicity but the model is fed the last few seconds before this picture as input), we give the long-horizon in a prompt and ask what the immediate next step should be. The human evaluator rates each answer and provides correction if needed. We report the rate of intervention at the end of the run.
+                  }}
+                  \label{fig:long_horizon_run_with_intervention_run1}
+                \end{figure*}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Observations
+                </h3>
+                From the experimental results above, we make the following observations: 
+
+                \textbf{Feasibility of low-intervention rate} The intervention rate depends critically on the performance of VLMs. Using a strong VLM, it is possible for the robot to do long-horizon planning with relatively low intervention rate. This indicates that the contemporary multimodal models are strong enough to help robots understand visual scenes and reason over the action steps in controlled environments, and it is critical to build stronger VLMs to achieve higher levels of robotic autonomy.
+
+                \textbf{Importance of multi-task training} Multitask training has been demonstrated to be effective in facilitating transfer learning, improving models' generalization ability and versatility~\citep{}. Similar observations hold in our experiments. We find in \fig{error_rate_different_tasks} that the model trained on all tasks is often better of comparable than the models dedicated to a subset of tasks, with the exception of the success task. However the performance difference is small, and a robotics setup benefits more largely from broad and general answering capabilities.
+
+                \textbf{Importance of video modeling}
+                In order to perform tasks accurately, visual grounding over time horizon is important. We verify this assumption by comparing VideoCoCa trained with different number of frames (1, 2, 4, 8, 16). The results are presented in Table~\ref{fig:error_rate_different_frames} in Appendix~\ref{appendix:compare_num_frames}. As expected, modeling with more frames yields better results, as it captures longer temporal dynamics for more accurate visual grounding.
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Limitations
+                </h3>
+
+                While we successfully collected a larger number of video-text examples over a wide range of tasks, our approach is limited in the following ways. First, all tasks were accomplished in unimanual manner. To further expand the variety of tasks, we will consider introducing bimanual operations in future work. Secondly, the ways robots and humans perform tasks may differ, potentially impeding transfer learning between human and robot data. Thirdly, human intervention and oversight of robot task execution is time consuming, making this evaluation procedure difficult to be deployed at large scale. Lastly, we have not compared the effectiveness of the proposed human-and-robot dataset/benchmark with human-only dataset/benchmarks like Ego4D~\citep{grauman2022ego4d}, EpicKitchens~\citep{Damen2018EPICKITCHENS} etc., which merit careful study in our future work.
+
+                We also acknowledge that in this work, we did not conduct  evaluations on a combined planning and mobile-manipulation setting. Rather, we opted to focus on high-level planning only. This is well motivated as decoupling planning and manipulation allows us to study the full breadth of possible tasks. We will explore combining high level with low-level policies in future works.
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Conclusion
+                </h3>
+                In conclusion, we hope that this dataset will serve as a benchmark for the robotics community working on solving grounded multimodal reasoning in complex real world settings. We also hope that cross embodiment transfer from human and robot data will usher in a greater possibility of accelerating robot learning by use of larger human task execution datasets. We show that video sequence models and multi task training improve planning performance over comparable methods. 
+            </div>
+        </div>
+ -->
+         <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Citation 
+                </h3>
+                <div class="form-group col-md-10 col-md-offset-1">
+                    <i>Hidden for anonymity</i>
+                </div>
+            </div>
+             
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Acknowledgements
+                </h3>
+                <p class="text-justify">
+                    <i>Hidden for anonymity</i>
+                    <br><br>
+                The website template was borrowed from <a href="http://jonbarron.info/">Jon Barron</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
